@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { Splide, SplideSlide } from '@splidejs/react-splide';
 import "@splidejs/splide/dist/css/splide.min.css";
+import { Link } from 'react-router-dom';
 
 const Veggies = () => {
   const [veggie, setVeggie] = useState([]);
@@ -31,33 +32,35 @@ const Veggies = () => {
     <Wrapper>
       <h3>Our Vegetarian Picks</h3>
       <Splide options={{
-                perPage: 4,
-                perMove: 1,
-                arrows: false,
-                pagination: false,
-                drag: 'free',
-                gap: '2rem',
-                breakpoints: {
-                    1200: {
-                        perPage: 2,
-                        gap: '1.5rem',
-                    },
-                    800: {
-                        perPage: 1,
-                        gap: '1rem',
-                    },
-                    600: {
-                        perPage: 1,
-                        gap: '0.5rem',
-                    },
-                },
-            }}>
+        perPage: 4,
+        perMove: 1,
+        arrows: false,
+        pagination: false,
+        drag: 'free',
+        gap: '2rem',
+        breakpoints: {
+          1200: {
+            perPage: 2,
+            gap: '1.5rem',
+          },
+          800: {
+            perPage: 1,
+            gap: '1rem',
+          },
+          600: {
+            perPage: 1,
+            gap: '0.5rem',
+          },
+        },
+      }}>
         {veggie.map((recipe) => (
           <SplideSlide key={recipe.id}>
             <Card>
-              <p>{recipe.title}</p>
-              <img src={recipe.image} alt={recipe.title} />
-              <Gradient />
+              <Link to={"/recipe/" + recipe.id}>
+                <p>{recipe.title}</p>
+                <img src={recipe.image} alt={recipe.title} />
+                <Gradient />
+              </Link>
             </Card>
           </SplideSlide>
         ))}
