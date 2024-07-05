@@ -32,7 +32,7 @@ const Veggies = () => {
     <Wrapper>
       <h3>Our Vegetarian Picks</h3>
       <Splide options={{
-        perPage: 4,
+        perPage: 3,
         perMove: 1,
         arrows: false,
         pagination: false,
@@ -75,7 +75,7 @@ const Wrapper = styled.div`
 
 const Card = styled.div`
   height: 13rem;
-  width: 13rem;
+  width: 18rem;
   overflow: hidden;
   position: relative;
   border-radius: 2rem;
