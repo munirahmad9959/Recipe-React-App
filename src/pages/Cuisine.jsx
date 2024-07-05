@@ -14,7 +14,7 @@ function Cuisine() {
 
   const getCuisine = async (name) => {
     try {
-      const api = await fetch(`https://api.spoonacular.com/recipes/complexSearch?apiKey=${import.meta.env.VITE_VARIABLE_NAME}&cuisine=${name}`);
+      const api = await fetch(`https://api.spoonacular.com/recipes/complexSearch?apiKey=${import.meta.env.VITE_API_KEY}&cuisine=${name}`);
       const data = await api.json();
       console.log(data.results);
       setCuisine(data.results);
