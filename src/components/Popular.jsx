@@ -70,48 +70,60 @@ const Popular = () => {
 }
 
 const Wrapper = styled.div`
-  margin: 4rem 0;
+  margin: 4rem 0rem;
+
+  @media (max-width: 390px) {
+    margin: 2rem 0;
+  }
 `;
 
 const Card = styled.div`
-  height: 13rem;
-  width: 13rem;
+  min-height: 25rem;
+  border-radius: 2rem;
   overflow: hidden;
   position: relative;
-  border-radius: 2rem;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 
   img {
+    border-radius: 2rem;
+    position: absolute;
+    left: 0;
     width: 100%;
     height: 100%;
     object-fit: cover;
-    border-radius: 2rem;
-    position: absolute;
   }
 
   p {
     position: absolute;
-    left: 50%;
-    bottom: 10%;
     z-index: 10;
+    left: 50%;
+    bottom: 0%;
     transform: translate(-50%, 0%);
     color: white;
     width: 100%;
     text-align: center;
-    font-size: 1rem;
     font-weight: 600;
+    font-size: 1rem;
+    height: 40%;
     display: flex;
     justify-content: center;
     align-items: center;
-  }`;
+  }
+
+  @media (max-width: 390px) {
+    min-height: 15rem;
+
+    p {
+      font-size: 0.8rem;
+    }
+  }
+`;
 
 const Gradient = styled.div`
-  background: linear-gradient(rgba(0,0,0,0),rgba(0,0,0,0.5));
   z-index: 3;
   position: absolute;
   width: 100%;
   height: 100%;
-  border-radius: 2rem;
+  background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.5));
 `;
 
 export default Popular;

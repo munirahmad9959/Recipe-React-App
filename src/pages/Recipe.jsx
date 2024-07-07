@@ -1,5 +1,4 @@
-import React from 'react';
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { useParams } from 'react-router-dom';
 
@@ -11,7 +10,7 @@ const Recipe = () => {
     const fetchDetails = async () => {
         const api = await fetch(`https://api.spoonacular.com/recipes/${params.name}/information?apiKey=${import.meta.env.VITE_API_KEY}`);
         const data = await api.json();
-        console.log(data)
+        console.log(data);
         setDetails(data);
     };
 
@@ -38,15 +37,17 @@ const Recipe = () => {
                 {activeTab === 'instructions' ? (
                     <div>
                         <h3 dangerouslySetInnerHTML={{ __html: details.summary }}></h3>
-                        <h3 dangerouslySetInnerHTML={{ __html: details.instructions }}></h3></div>
-                ) : <ul>
-                    {details.extendedIngredients.map((ingredient) => {
-                        return (<li key={ingredient.id}>{ingredient.original}</li>)
-                    })}
-                </ul>}
-
+                        <h3 dangerouslySetInnerHTML={{ __html: details.instructions }}></h3>
+                    </div>
+                ) : (
+                    <ul>
+                        {details.extendedIngredients.map((ingredient) => {
+                            return (<li key={ingredient.id}>{ingredient.original}</li>);
+                        })}
+                    </ul>
+                )}
             </Info>
-        </DetailedWrapper >
+        </DetailedWrapper>
     );
 };
 
@@ -54,11 +55,20 @@ const DetailedWrapper = styled.div`
   margin-top: 10rem;
   margin-bottom: 5rem;
   display: flex;
+  flex-direction: column;
   gap: 2rem;
+  align-items: center;
+  justify-content: center;
+
+  @media (max-width: 600px) {
+    margin-top: 5rem;
+    margin-bottom: 2rem;
+  }
 `;
 
 const ImageWrapper = styled.div`
-  width: 40%;
+  width: 100%;
+  max-width: 600px;
 
   img {
     width: 100%;
@@ -67,6 +77,7 @@ const ImageWrapper = styled.div`
 
   h2 {
     margin-bottom: 2rem;
+    text-align: center;
   }
 `;
 
@@ -74,6 +85,7 @@ const ButtonWrapper = styled.div`
   margin-bottom: 2rem;
   display: flex;
   gap: 1rem;
+  justify-content: center;
 `;
 
 const Button = styled.button`
@@ -91,10 +103,13 @@ const Button = styled.button`
 `;
 
 const Info = styled.div`
-  width: 60%;
+  width: 100%;
+  max-width: 600px;
   display: flex;
   flex-direction: column;
-  margin-left: 4rem;
+  align-items: center;
+  margin-left: 35px;
+  margin-right: 5px;
 
   h3 {
     font-size: 16px;
@@ -102,7 +117,7 @@ const Info = styled.div`
     margin-top: 0;
   }
 
-  li{
+  li {
     line-height: 1.5rem;
   }
 `;

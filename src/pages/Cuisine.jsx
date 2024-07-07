@@ -73,30 +73,33 @@ function Cuisine() {
 const Grid = styled(motion.div)`
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
-  grid-gap: 1.5rem;
+  grid-gap: 3rem;
+
+  @media (max-width: 390px) {
+    grid-template-columns: 1fr;
+    grid-gap: 1rem;
+  }
 `;
 
 const Card = styled(motion.div)`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  
-
   img {
     width: 100%;
-    max-width: 350px;
     border-radius: 2rem;
   }
 
   a {
     text-decoration: none;
-    width: 100%;
   }
 
   h4 {
+    text-align: center;
     padding: 1rem;
-    word-wrap: break-word;
+  }
+
+  @media (max-width: 390px) {
+    h4 {
+      font-size: 0.8rem;
+    }
   }
 `;
 

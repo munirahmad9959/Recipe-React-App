@@ -25,7 +25,7 @@ const Search = () => {
 
 const FormStyle = styled.form`
   margin: 0rem 10rem;
-  
+
   div {
     position: relative;
     width: 100%;
@@ -45,9 +45,23 @@ const FormStyle = styled.form`
   svg {
     position: absolute;
     top: 50%;
-    left: 1rem; /* Adjusted to position inside input */
+    left: 1rem;
     transform: translate(0, -50%);
     color: white;
+  }
+
+  @media (max-width: 390px) {
+    margin: 0 1rem;
+
+    input {
+      font-size: 1rem;
+      padding: 0.5rem 2rem;
+      border-radius: 0.5rem;
+    }
+
+    svg {
+      left: 0.5rem;
+    }
   }
 `;
 

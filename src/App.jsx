@@ -35,14 +35,18 @@ const Logo = styled(Link)`
 `
 
 const Nav = styled.div`
-  padding: 4rem 0rem;
+  padding: 2rem 0;
   display: flex;
   justify-content: flex-start;
   align-items: center;
 
-  svg{
-    font-size: 2rem;
+  svg {
+    font-size: 1.5rem;
   }
-`
+
+  @media (max-width: 390px) {
+    justify-content: center;
+  }
+`;
 
 export default App

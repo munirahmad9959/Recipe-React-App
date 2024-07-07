@@ -73,6 +73,11 @@ const Grid = styled(motion.div)`
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
   grid-gap: 3rem;
+
+  @media (max-width: 390px) {
+    grid-template-columns: 1fr;
+    grid-gap: 1rem;
+  }
 `;
 
 const Card = styled(motion.div)`
@@ -88,6 +93,12 @@ const Card = styled(motion.div)`
   h4 {
     text-align: center;
     padding: 1rem;
+  }
+
+  @media (max-width: 390px) {
+    h4 {
+      font-size: 0.8rem;
+    }
   }
 `;
 
